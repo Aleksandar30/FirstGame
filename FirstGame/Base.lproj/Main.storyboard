@@ -1,24 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FirstGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Znr-lF-jBV">
+                                <rect key="frame" x="176" y="55" width="65" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Yhe-JX-VE3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wB-47-qoF">
+                                <rect key="frame" x="125" y="111" width="164" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="f1u-X8-stc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frog" translatesAutoresizingMaskIntoConstraints="NO" id="oZp-q5-DlV">
+                                <rect key="frame" x="20" y="202" width="199" height="202"/>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highscore: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSr-MO-Scl">
+                                <rect key="frame" x="125" y="688" width="164" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="4IG-hN-eGo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjn-Zp-Qda">
+                                <rect key="frame" x="121" y="749" width="168" height="39"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="button:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oDq-FM-fSw"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zjn-Zp-Qda" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="121" id="2Sf-GQ-Ypl"/>
+                            <constraint firstItem="7wB-47-qoF" firstAttribute="trailing" secondItem="aSr-MO-Scl" secondAttribute="trailing" id="6uO-dY-1Ef"/>
+                            <constraint firstItem="oZp-q5-DlV" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="-175" id="6z5-Cq-XyG"/>
+                            <constraint firstItem="oZp-q5-DlV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="EGI-Lm-M7w"/>
+                            <constraint firstItem="7wB-47-qoF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="125" id="TR5-bE-0Yg"/>
+                            <constraint firstItem="Znr-lF-jBV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="11" id="Tz7-sc-hxv"/>
+                            <constraint firstItem="zjn-Zp-Qda" firstAttribute="trailing" secondItem="aSr-MO-Scl" secondAttribute="trailing" id="aR9-ir-o3Q"/>
+                            <constraint firstItem="oZp-q5-DlV" firstAttribute="top" secondItem="7wB-47-qoF" secondAttribute="bottom" constant="42" id="c8X-Rg-qCL"/>
+                            <constraint firstItem="aSr-MO-Scl" firstAttribute="top" secondItem="oZp-q5-DlV" secondAttribute="bottom" constant="284" id="lGX-kE-Inf"/>
+                            <constraint firstItem="Znr-lF-jBV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="176" id="mSO-Qa-9SN"/>
+                            <constraint firstItem="7wB-47-qoF" firstAttribute="leading" secondItem="aSr-MO-Scl" secondAttribute="leading" id="o1H-sj-q3e"/>
+                            <constraint firstItem="7wB-47-qoF" firstAttribute="top" secondItem="Znr-lF-jBV" secondAttribute="bottom" constant="8" id="ota-V1-dct"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Znr-lF-jBV" secondAttribute="trailing" constant="173" id="pm3-U7-apT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zjn-Zp-Qda" secondAttribute="bottom" constant="74" id="utW-Qz-hKq"/>
+                            <constraint firstItem="zjn-Zp-Qda" firstAttribute="top" secondItem="aSr-MO-Scl" secondAttribute="bottom" constant="8" id="wBY-0b-h6w"/>
+                            <constraint firstItem="7wB-47-qoF" firstAttribute="centerX" secondItem="oZp-q5-DlV" secondAttribute="centerX" constant="87.5" id="wIa-IH-bnz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aSr-MO-Scl" secondAttribute="bottom" constant="121" id="zOy-Km-azL"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="highScore" destination="aSr-MO-Scl" id="nmG-L4-jcQ"/>
+                        <outlet property="imageView" destination="oZp-q5-DlV" id="Bjk-6y-H4J"/>
+                        <outlet property="scoreText" destination="7wB-47-qoF" id="cQd-oO-mei"/>
+                        <outlet property="timeLabel" destination="Znr-lF-jBV" id="HYo-WO-Pjc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="116.51785714285714"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="frog" width="225" height="225"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
