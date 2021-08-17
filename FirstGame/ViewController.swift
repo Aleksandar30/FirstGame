@@ -46,8 +46,9 @@ class ViewController: UIViewController {
     }
     
     @objc func setTime(){
-        timeLabel.text = "Time: " +  String(counter)
+        
         counter -= 1
+        timeLabel.text = "Time: " +  String(counter)
         if counter == 0 {
             timer.invalidate()
             timer2.invalidate()
@@ -68,7 +69,7 @@ class ViewController: UIViewController {
         }else{
             
             //self.checkHighscore(highScore: self.score)
-            let alert = UIAlertController(title: "Time is up", message: "Do you want to play again?", preferredStyle: UIAlertController.Style.actionSheet)
+            let alert = UIAlertController(title: "Time is up", message: "Do you want to play again?", preferredStyle: UIAlertController.Style.alert)
             let buttonOK = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) { UIAlertAction in
                 self.score = 0
                 self.scoreText.text = "Score: " + String(0)
