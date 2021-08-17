@@ -12,9 +12,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var scoreText: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var highScore: UILabel!
+    @IBOutlet weak var highScoreLabel: UILabel!
     
-    
+    var hScore = 0;
     var score = 0;
     var timer = Timer()
     var timer2 = Timer()
@@ -23,6 +23,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //menja vrednost za score kad se klikne
         imageView.isUserInteractionEnabled = true
         let gestureRecognizers = UITapGestureRecognizer(target: self, action: #selector(updateScore))
@@ -30,19 +31,31 @@ class ViewController: UIViewController {
         
         //timer
         counter = 10
-        timeLabel.text = String(counter)
+        timeLabel.text = "Time: " + String(counter)
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(setTime), userInfo: nil, repeats: true)
-        
+        timer2 = Timer.scheduledTimer(timeInterval: 0.9, target: self, selector: #selector(updatePosition), userInfo: nil, repeats: true)
+                
+        //postavljanje HighScore
+        if let hs = UserDefaults.standard.object(forKey: "highScore") as? Int {
+            hScore = hs
+            highScoreLabel.text = "HighScore: " + String(hScore)
+            
+        }
         
         
     }
     
     @objc func setTime(){
-        timeLabel.text = String(counter)
+        timeLabel.text = "Time: " +  String(counter)
         counter -= 1
         if counter == 0 {
             timer.invalidate()
-            timeLabel.text = String(counter)
+            timer2.invalidate()
+            checkHighscore(highScore: score)
+            print(score)
+            
+            
+            timeLabel.text = "Time: " +  String(counter)
         }
         
     }
@@ -50,12 +63,32 @@ class ViewController: UIViewController {
     @objc func updateScore() {
         if counter != 0 {
             score += 1
-            scoreText.text = String(score)
+            scoreText.text = "Score: " + String(score)
             updatePosition()
         }else{
-            highScore.text = "Highscore: " + String(score)
+            
+            //self.checkHighscore(highScore: self.score)
+            let alert = UIAlertController(title: "Time is up", message: "Do you want to play again?", preferredStyle: UIAlertController.Style.actionSheet)
+            let buttonOK = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) { UIAlertAction in
+                self.score = 0
+                self.scoreText.text = "Score: " + String(0)
+                self.viewDidLoad()
+                
+                
+            }
+            alert.addAction(buttonOK)
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func checkHighscore(highScore : Int){
+        
+        if highScore > hScore {
+            highScoreLabel.text = "HighScore: " + String(highScore)
+            UserDefaults.standard.set(highScore, forKey: "highScore")
             
         }
+        
     }
     
     @objc func updatePosition() {
@@ -73,8 +106,9 @@ class ViewController: UIViewController {
     
     
     @IBAction func button(_ sender: Any) {
-        updatePosition()
-        print(imageView.frame.origin)
+        UserDefaults.standard.set(0, forKey: "highScore")
+        highScoreLabel.text = "HighScore: " + UserDefaults.standard.string(forKey: "highScore")!
+        
         
     }
     
